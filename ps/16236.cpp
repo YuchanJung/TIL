@@ -20,15 +20,17 @@ tuple<int, int, int> bfs(int graph[][20], int visited[][20], queue<tuple<int, in
                 int tmp_x = get<0>(tmp);
                 int tmp_y = get<1>(tmp);
                 int tmp_dis = get<2>(tmp);
-                if (dis != tmp_dis || graph[tmp_x][tmp_y] == 0 || graph[tmp_x][tmp_y] == baby_size)
+                if (dis != tmp_dis)
                     return make_tuple(x, y, dis);
-                if (tmp_x < x) {
-                    x = tmp_x;
-                    y = tmp_y;
-                }
-                else if (tmp_x == x && tmp_y < y) {
-                    x = tmp_x;
-                    y = tmp_y;
+                if (graph[tmp_x][tmp_y] > 0 && graph[tmp_x][tmp_y] < baby_size) {
+                    if (tmp_x < x) {
+                        x = tmp_x;
+                        y = tmp_y;
+                    }
+                    else if (tmp_x == x && tmp_y < y) {
+                        x = tmp_x;
+                        y = tmp_y;
+                    }
                 }
             }
             return make_tuple(x, y, dis);
