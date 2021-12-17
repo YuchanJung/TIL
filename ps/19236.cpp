@@ -5,17 +5,6 @@ using namespace std;
 const int dx[] = {-1, -1, 0, 1, 1, 1, 0, -1};
 const int dy[] = {0, -1, -1, -1, 0, 1, 1, 1};
 
-void print_m(int matrix[][4][2]) {
-    int i, j;
-    for (i = 0; i < 4; i++) {
-        for (j = 0; j < 4; j++) {
-            cout << matrix[i][j][0] << matrix[i][j][1] << ' ';
-        }
-        cout << endl;
-    }
-    cout << "=================" << endl;
-}
-
 int process(int matrix[][4][2], int loc[][2], int sx, int sy) {
     int i;
     int res, res_tmp, sdi;
@@ -65,14 +54,17 @@ int process(int matrix[][4][2], int loc[][2], int sx, int sy) {
     nsx = sx + dx[sdi];
     nsy = sy + dy[sdi];
     while (true) {
-        if (nsx < 0 || nsx >= 4 || nsy < 0 || nsy >= 4 || matrix[nsx][nsy][0] == -1)
+        if (nsx < 0 || nsx >= 4 || nsy < 0 || nsy >= 4)
             break;
+        if (matrix[nsx][nsy][0] <= 0) {
+            nsx = nsx + dx[sdi];
+            nsy = nsy + dy[sdi];
+            continue;
+        }
         copy(&matrix[0][0][0], &matrix[0][0][0] + 32, &matrix_cp[0][0][0]);
         copy(&loc[0][0], &loc[0][0] + 34, &loc_cp[0][0]);
-        int tmp = process(matrix_cp, loc_cp, nsx, nsy);
-        cout << tmp << endl;
-        res = max(res, res_tmp + tmp);
-        // cout << res + matrix[nsx][nsy][0] << endl;
+        matrix_cp[sx][sy][0] = 0;
+        res = max(res, res_tmp + process(matrix_cp, loc_cp, nsx, nsy));
         nsx = nsx + dx[sdi];
         nsy = nsy + dy[sdi];
     }
@@ -93,5 +85,4 @@ int main() {
         }
     }
     cout << process(matrix, loc, 0, 0) << endl;
-    // print_m(matrix);
 }
