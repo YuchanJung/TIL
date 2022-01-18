@@ -1,5 +1,4 @@
 .vscode
-
-*/.ipynb_checkpoints
-ml/handson-ml2/images/**/*.png
-ml/handson-ml2/images/**/*.dot
+.ipynb_checkpoints
+images/**/*.png
+images/**/*.dot
