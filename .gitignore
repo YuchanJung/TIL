@@ -5,3 +5,5 @@ ml/handson-ml2/images/**/*.dot
 ml/handson-ml2/my_*
 ml/handson-ml2/*.ckpt
 ml/handson-ml2/checkpoint
+
+goorm.manifest
