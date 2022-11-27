@@ -1,5 +1,6 @@
 .vscode
 .ipynb_checkpoints
+.DS_Store
 ml/handson-ml2/images/**/*.png
 ml/handson-ml2/images/**/*.dot
 ml/handson-ml2/my_*
