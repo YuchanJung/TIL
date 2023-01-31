@@ -1,6 +1,7 @@
 .vscode
 .ipynb_checkpoints
 .DS_Store
+__pycache__
 ml/handson-ml2/images/**/*.png
 ml/handson-ml2/images/**/*.dot
 ml/handson-ml2/my_*
