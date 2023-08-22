@@ -45,7 +45,8 @@ while(cnt < m - 1):
         if s_loc[s_num] == [x, y]: # if shark did not move
             for i in sp:
                 nx, ny = x + dx[i], y + dy[i]
-                if nx < 0 or nx >= n or ny < 0 or ny >= n: continue
+                if nx < 0 or nx >= n or ny < 0 or ny >= n:
+                    continue
                 if (nx , ny) in smell[s_num]:
                     s_loc[s_num] = [nx, ny]
                     s_direction[s_num - 1] = i
