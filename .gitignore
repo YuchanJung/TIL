@@ -9,3 +9,4 @@ ml/handson-ml2/*.ckpt
 ml/handson-ml2/checkpoint
 
 goorm.manifest
+ps/py/.idea/*
